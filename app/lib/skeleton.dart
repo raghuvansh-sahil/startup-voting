@@ -1,4 +1,6 @@
 import 'package:app/screens/add_screen.dart';
+import 'package:app/screens/home_screen.dart';
+import 'package:app/screens/leaderboard_screen.dart';
 import 'package:flutter/material.dart';
 
 class Skeleton extends StatefulWidget {
@@ -10,16 +12,17 @@ class Skeleton extends StatefulWidget {
 
 class _SkeletonState extends State<Skeleton> {
   int currentIndex = 0;
-  final List<Widget> screens = const [
-    Placeholder(),
-    Placeholder(),
-    AddScreen(),
-  ];
+  final List<Widget> screens = [HomeScreen(), LeaderboardScreen(), AddScreen()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text(
+          'Startup-Voting',
+          style: TextStyle(fontSize: 30.0, fontFamily: 'Pacifico'),
+        ),
+      ),
       body: screens[currentIndex],
       bottomNavigationBar: NavigationBar(
         selectedIndex: currentIndex,
